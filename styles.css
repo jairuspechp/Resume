@@ -378,3 +378,20 @@ section.contact .row a:hover{ border-color:var(--ink); }
   html{ scroll-behavior:auto; }
   *{ transition:none !important; }
 }
+
+/* Firefox */
+html{
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+}
+
+/* IE / old Edge */
+body{
+  -ms-overflow-style:none;
+}
+
+/* Chrome, Safari, Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  display:none;
+}
