@@ -88,12 +88,10 @@ nav.rail-nav a {
   position: relative;
   text-decoration: none;
 
-  /* Smooth hover animation */
   transition:
     opacity .15s ease,
     padding-left .15s ease;
 
-  /* Background starts empty */
   background: linear-gradient(
     to top,
     rgba(92, 55, 94, 0.295) 0%,
@@ -113,25 +111,19 @@ nav.rail-nav a {
 nav.rail-nav a:hover {
   opacity: 1;
   padding-left: 14px;
-
-  /* Background grows from left to right */
   background-size: 100% 100%;
 }
 
-/* Underline animation */
 nav.rail-nav a::after {
   content: "";
   position: absolute;
   left: 10px;
   bottom: 4px;
-
   width: 0;
   height: 1px;
   background-color: var(--petrol);
-
   transition: width .3s ease;
 }
-
 
 nav.rail-nav a:hover::after {
   width: calc(100% - 20px);
@@ -212,6 +204,7 @@ section.work{ padding:80px 0; border-bottom:1px solid var(--line); }
   font-size:12.5px;
   color:rgba(255,255,255,0.85);
   font-family:'IBM Plex Sans', sans-serif;
+  z-index:2;
 }
 .thumb {
     position: relative;
@@ -224,6 +217,22 @@ section.work{ padding:80px 0; border-bottom:1px solid var(--line); }
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+/* Use on wide/non-4:3 screenshots (e.g. desktop app UI) so the full
+   image is visible instead of being cropped, centered over the
+   thumb's own tint gradient rather than a flat fill color */
+.thumb.contain {
+    padding: 24px;
+}
+.thumb.contain img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+    position: relative;
+    z-index: 1;
 }
 
 .project .info h3{
@@ -262,7 +271,6 @@ section.work{ padding:80px 0; border-bottom:1px solid var(--line); }
 
   transform-origin: left center;
 
-  /* Background fade */
   background: linear-gradient(
     to bottom,
      rgba(189, 15, 111, 0.295) 0%,
@@ -279,29 +287,21 @@ section.work{ padding:80px 0; border-bottom:1px solid var(--line); }
     background-size .4s ease;
 }
 
-/* Hover */
 .project .info .link:hover {
   opacity: 1;
   transform: scale(1.15);
-
-  /* Background grows left → right */
   background-size: 100% 100%;
 }
 
-/* Underline animation */
 .project .info .link::after {
   content: "";
-
   position: absolute;
   left: 50%;
   bottom: 4px;
-
   width: 0;
   height: 1px;
-
   background-color: var(--petrol);
   transform: translateX(-50%);
-
   transition: width .3s ease;
 }
 
